@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Collections;
 //using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,32 +19,50 @@ namespace LangApp
         }
     }
 
+    enum TempScale
+    {
+        F, C, K
+    }
+
+    struct Temperature
+    {
+        public float value;
+        public TempScale scale;
+    }
 
     class Program
     {
+        static Temperature Convert(Temperature t, TempScale scale)
+        {
+            Temperature rv;
+            rv.value = 32;
+            rv.scale = TempScale.F;
+            return rv;
+        }
+
         static void Main(string[] args)
         {
-            //var p1 = new Person() { LastName = "J", FirstName = "B" };
-            //var p2 = p1;// new Person() { LastName = "J", FirstName = "B" };
+            bool? i = null;
 
-            //object.ReferenceEquals(p1, p2);
+            bool a = i.GetValueOrDefault();
 
-            //Console.WriteLine((p1 == p2) ? "Yes" : "No");
-
-            string a = null;
-            string b = String.Empty;
-            Person c = null;
-
-            Console.WriteLine(object.ReferenceEquals(a, c) ? "Yes" : "No");
+            Console.WriteLine(a);
 
             Console.ReadKey();
         }
 
-        static void Foo(ref string s)
+        static int Foo(object obj)
         {
-            s = s.ToUpper();
+            return 0;
         }
-
-       
     }
+
+    enum EmpType
+    {
+        Unknown,
+        Manager,
+        Grunt,
+        Contractor
+    }
+
 }
