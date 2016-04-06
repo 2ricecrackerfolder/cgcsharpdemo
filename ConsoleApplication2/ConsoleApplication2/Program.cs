@@ -13,7 +13,8 @@ namespace ConsoleApplication2
         { 
             List<int> nums = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
 
-            List<int> r = nums.Where(n => n % 2 == 0).ToList();
+            var r = nums.Where(n => n % 2 == 0);
+            var r2 = r.Where(n => n > 5);
 
             foreach (var n in r)
             {
