@@ -8,14 +8,54 @@ using System.Threading.Tasks;
 
 namespace LangApp
 {
-    class Person
+    public class Foo
     {
-        public string FirstName;
-        public string LastName;
+        int a = 1;
+        int b;
+
+        public Foo()
+        {
+            b = 2;
+        }
+    }
+
+    public class Bar : Foo
+    {
+        int c = 3;
+        int d;
+
+        public Bar()
+        {
+            d = 4;
+        }
+    }
+
+
+    public class Person
+    {
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+
+        public Person()
+            : this("", "") { }
+
+        public Person(string fn, string ln)
+        {
+            FirstName = fn;
+            LastName = ln;
+        }
+
+        public string FullName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
 
         public override string ToString()
         {
-            return String.Format("{0} {1}", FirstName, LastName);
+            return FullName;
         }
     }
 
@@ -42,11 +82,21 @@ namespace LangApp
 
         static void Main(string[] args)
         {
-            bool? i = null;
+            List<Person> people = new List<Person>();
+            people.Add(new Person("Bill", "Gates"));
+            people.Add(new Employee("Steve", "Jobs"));
 
-            bool a = i.GetValueOrDefault();
-
-            Console.WriteLine(a);
+            foreach(var p in people)
+            {
+                if (p is Employee)
+                {
+                    Console.WriteLine((p as Employee).FullName);
+                }
+                else
+                {
+                    Console.WriteLine(p.FullName);
+                }
+            }
 
             Console.ReadKey();
         }
