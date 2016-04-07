@@ -9,7 +9,13 @@ using System.Web.Mvc;
 namespace NW.WebApp.Controllers
 {
     public class CategoryController : NorthwindController
-    {      
+    {
+        public CategoryController()
+            : this(null) { }
+
+        public CategoryController(IRepository r)
+            : base(r) { }
+
         public ActionResult Index()
         {
             IEnumerable<Category> cats;

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NW.Data
 {
-    public class Repository
+    internal class Repository : IRepository
     {
         private string connStr;
 
