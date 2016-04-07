@@ -47,7 +47,9 @@ namespace NW.Data
  
             } catch (Exception ex)
             {
-                Console.WriteLine(ex.ToString());
+                // log it
+                // notification
+                throw new ApplicationException("Bad Things", ex);
             }
             return retVal;
         }
