@@ -10,7 +10,8 @@ namespace NW.Data
     {
         public static IRepository GetRepository(string connStr)
         {
-            return new Repository(connStr);
+            //return new Repository(connStr);
+            return new EFRepository(connStr);
         }
     }
 }

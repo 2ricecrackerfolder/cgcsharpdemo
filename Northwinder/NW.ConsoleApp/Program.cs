@@ -15,12 +15,12 @@ namespace NW.ConsoleApp
         {
             string connStr = ConfigurationManager.ConnectionStrings["connStr"].ConnectionString;
 
-            Repository r = new Repository(connStr);
-            var categories = r.GetAllCategories();
-            foreach (Category c in categories)
-            {
-                Console.WriteLine(c.CategoryName);
-            }
+            //Repository r = new Repository(connStr);
+            //var categories = r.GetAllCategories();
+            //foreach (Category c in categories)
+            //{
+            //    Console.WriteLine(c.CategoryName);
+            //}
             Console.ReadKey();
         }
     }
